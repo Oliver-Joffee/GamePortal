@@ -1,10 +1,11 @@
 package CardGame;
+import java.util.concurrent.CountDownLatch;
+
 import Game.GameWriteable;
 import processing.core.PApplet;
 
 public class App extends PApplet implements GameWriteable {
-
-
+    CountDownLatch latch;
     ClickableRectangle newGameButton = new ClickableRectangle();
     Speed cardGame = new Speed();
     SpeedComputer computer = new SpeedComputer(cardGame);
@@ -40,7 +41,7 @@ public class App extends PApplet implements GameWriteable {
         fill(200);
         newGameButton.draw(this);
         fill(0);
-        text("NEW GAME?", newGameButton.x + newGameButton.width/2, newGameButton.y + newGameButton.height/2);
+        text("END", newGameButton.x + newGameButton.width/2, newGameButton.y + newGameButton.height/2);
     }
 
     @Override
@@ -131,9 +132,7 @@ public class App extends PApplet implements GameWriteable {
         cardGame.handleCardClick(mouseX, mouseY);
         if (!game) {
             if (newGameButton.isClicked(dmouseX, dmouseY)) {
-                game = true;
-                cardGame = new Speed();
-                computer = new SpeedComputer(cardGame);
+                latch.countDown();
             }
         }
     } 
@@ -146,6 +145,15 @@ public class App extends PApplet implements GameWriteable {
     public void play() {
         String[] args = {"S", "p", "e", "e", "d"};
         PApplet.runSketch(args, this);
+        // PUT THIS IN YOUR PLAY FUNCTION
+        latch = new CountDownLatch(1); 
+        try {
+            latch.await(); // to make this line of code finish, you call latch.countDown() somewhere else in your processing code :) 
+        } catch (InterruptedException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+       }
+
     }
     @Override
     public String getScore() {
