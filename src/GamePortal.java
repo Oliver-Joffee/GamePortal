@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import Game.Game;
 import Game.ErrorCheck;
-import CardGame.CardGame;
+import CardGame.App;
 
 public class GamePortal {
     static Scanner sc = new Scanner(System.in);
@@ -36,7 +36,7 @@ public class GamePortal {
 
     public static void loadGames() {
         games.clear();
-        games.add(new CardGame());
+        games.add(new App());
     }
 
     public static void printGameChoices() {

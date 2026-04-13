@@ -1,7 +1,8 @@
 package CardGame;
+import Game.GameWriteable;
 import processing.core.PApplet;
 
-public class App extends PApplet {
+public class App extends PApplet implements GameWriteable {
 
 
     ClickableRectangle newGameButton = new ClickableRectangle();
@@ -135,5 +136,25 @@ public class App extends PApplet {
                 computer = new SpeedComputer(cardGame);
             }
         }
+    } 
+    @Override
+    public String getGameName() {
+        // TODO Auto-generated method stub
+        return "Speed";
+    }
+    @Override
+    public void play() {
+        String[] args = {"S", "p", "e", "e", "d"};
+        PApplet.runSketch(args, this);
+    }
+    @Override
+    public String getScore() {
+        // TODO Auto-generated method stub
+        return "5";
+    }
+    @Override
+    public boolean isHighScore(String score, String currentHighScore) {
+        // TODO Auto-generated method stub
+        return true;
     }
 }
