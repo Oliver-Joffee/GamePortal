@@ -6,6 +6,7 @@ import java.util.Scanner;
 import Game.Game;
 import Game.ErrorCheck;
 import CardGame.App;
+import BuzzfeedQuiz.Quiz;
 
 public class GamePortal {
     static Scanner sc = new Scanner(System.in);
@@ -37,6 +38,7 @@ public class GamePortal {
     public static void loadGames() {
         games.clear();
         games.add(new App());
+        games.add(new Quiz());
     }
 
     public static void printGameChoices() {

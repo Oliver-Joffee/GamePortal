@@ -1,3 +1,4 @@
+package BuzzfeedQuiz;
 
 /*
  * Irene Feng Nov 2022
@@ -5,12 +6,17 @@
  */
 import java.util.Scanner;
 import java.util.Set;
+import java.util.concurrent.CountDownLatch;
+
+import Game.GameWriteable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class Quiz {
+public class Quiz implements GameWriteable {
+        static CountDownLatch latch;
+        public static String currentFinal = "";
         static Scanner sc = new Scanner(System.in);
         public static String name = "";
         public static HashMap<String, Category> playerData = new HashMap<>();
@@ -139,14 +145,16 @@ public class Quiz {
                 }
 
                 ArrayList<Integer> fin = getMostPopularCatIndex(cList);
+                currentFinal = cList[fin.get(0)].label;
                 
                 System.out.println("If you were a Zelda game, you would be " + cList[fin.get(0)].label + ". ");
-                System.out.println("Youre name is" + name);
+                
+                //latch.countDown();
                 savePlayerData(name, cList[fin.get(0)]);
                 saveCategoryData(cList[fin.get(0)].label);
                 sc.nextLine();
                 System.out.println(cList[fin.get(0)].description);
-                gameIntro();
+                //gameIntro();
 
         }
 
@@ -221,5 +229,38 @@ public class Quiz {
                         }
                 }
                 return maxIndex;
+        }
+
+        @Override
+        public String getGameName() {
+                return "Zelda Quiz";
+        }
+
+        @Override
+        public void play() {
+                // TODO Auto-generated method stub
+                
+                gameIntro();
+                
+                
+                // try {
+                //         latch.await(); // to make this line of code finish, you call latch.countDown() somewhere else in your processing code :) 
+                //     } catch (InterruptedException e) {
+                //      // TODO Auto-generated catch block
+                //      e.printStackTrace();
+                //    }
+
+        }
+
+        @Override
+        public String getScore() {
+                // TODO Auto-generated method stub
+                return currentFinal;
+        }
+
+        @Override
+        public boolean isHighScore(String score, String currentHighScore) {
+                // TODO Auto-generated method stub
+                return true;
         }
 }
