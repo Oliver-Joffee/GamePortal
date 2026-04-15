@@ -26,8 +26,12 @@ public interface GameWriteable extends Game {
         String highScore = getBestScore(f);
         System.out.println("Thanks for playing! Your score was " + score);
 
-        if (isHighScore(score, highScore)) {
-            System.out.println("You got a new high score, which beats the previous high score of " + highScore);
+        if (highScore == null || isHighScore(score, highScore)) {
+            if (highScore != null) {
+                System.out.println("You got a new high score, which beats the previous high score of " + highScore);
+            } else {
+                System.out.println("You got a new high score!");
+            }
             try {
 
                 Scanner myReader = new Scanner(f);

@@ -133,6 +133,7 @@ public class App extends PApplet implements GameWriteable {
         if (!game) {
             if (newGameButton.isClicked(dmouseX, dmouseY)) {
                 latch.countDown();
+                exitActual();
             }
         }
     } 
@@ -155,14 +156,20 @@ public class App extends PApplet implements GameWriteable {
        }
 
     }
+
+
     @Override
     public String getScore() {
-        // TODO Auto-generated method stub
-        return "5";
+        return str(cardGame.playerOneDeck.size() + cardGame.playerOneHand.getSize());
     }
     @Override
     public boolean isHighScore(String score, String currentHighScore) {
-        // TODO Auto-generated method stub
-        return true;
+        return Integer.parseInt(score) < Integer.parseInt(currentHighScore);
     }
+    @Override
+    public void exitActual() {
+       
+    }
+
+    
 }
