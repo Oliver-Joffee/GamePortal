@@ -26,7 +26,7 @@ public class CardGame {
     int drawButtonHeight = 35;
 
     public CardGame() {
-        System.out.println("Card game init");
+      
         
         initializeGame();
         //dealCards(6);
@@ -34,7 +34,7 @@ public class CardGame {
 
     protected void initializeGame() {
         // Initialize draw button
-        System.out.println("Init game init");
+  
         drawButton = new ClickableRectangle();
         drawButton.x = drawButtonX;
         drawButton.y = drawButtonY;
@@ -53,7 +53,7 @@ public class CardGame {
 
     protected void createDeck() {
         // Create a standard deck of cards (for simplicity, using numbers and suits)
-        System.out.println("Create deck init");
+    
         String[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
         String[] values = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
         for (String suit : suits) {
@@ -61,7 +61,7 @@ public class CardGame {
                 deck.add(new Card(value, suit));
             }
         }
-        System.out.println("Deck length =" + deck.size());
+  
     }
 
     protected void dealCards(int numCards) {
@@ -109,9 +109,9 @@ public class CardGame {
 
     public boolean playCard(Card card, Hand hand) {
         // Check if card is valid to play
-        System.out.println("played a carr");
+ 
         if (!isValidPlay(card)) {
-            System.out.println("Invalid play: " + card.value + " of " + card.suit);
+
             return false;
         }
         // Remove card from hand

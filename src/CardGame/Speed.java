@@ -72,18 +72,18 @@ public class Speed extends CardGame {
     }
 
     public boolean checkHand(Hand hand) {
-        System.out.println("im checking the hand");
+  
         for (int i = 0; i < hand.getSize(); i++) {
             
             if (discard1.get(discard1.size()-1).getValue() == hand.getCard(0).getValue() + 1 || discard1.get(discard1.size()-1).getValue() == hand.getCard(0).getValue() - 1 || (discard1.get(discard1.size()-1).getValue() == 1 && hand.getCard(0).getValue() == 13) || (discard1.get(discard1.size()-1).getValue() == 13 && hand.getCard(0).getValue() ==1)) {
-                System.out.println("you can do");
+ 
                 return true;
             } else if (discard2.get(discard2.size()-1).getValue() == hand.getCard(0).getValue() + 1 || discard2.get(discard2.size()-1).getValue() == hand.getCard(0).getValue() - 1 || (discard2.get(discard2.size()-1).getValue() == 1 && hand.getCard(0).getValue() == 13) || (discard2.get(discard2.size()-1).getValue() == 13 && hand.getCard(0).getValue() ==1)) {
-                System.out.println("you can do");
+      
                 return true;
             }
         }
-        System.out.println("nothing you can do");
+  
         return false;
     }
 
