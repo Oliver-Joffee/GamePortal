@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Game {
+public class NumberGame {
     int guesses;
     int numToGuess;
     static Scanner sc = new Scanner(System.in);
@@ -13,7 +13,7 @@ public class Game {
     int gameHigh;
     ArrayList<Integer> previousGuesses = new ArrayList<>();
 
-    Game(int low, int high) {
+    NumberGame(int low, int high) {
         guesses = 0;
         // TODO: setup.
         System.out.println("I'm thinking of a number " + low + " to " + high);
