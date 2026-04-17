@@ -202,7 +202,7 @@ public class Speed extends CardGame {
         discard1.get(0).setTurned(false);
         discard2.get(0).setTurned(false);
 
-        System.out.println("help please cards dealt");
+    
         playerOneHand.positionCards(50, 450, 80, 120, 20);
         playerTwoHand.positionCards(50, 50, 80, 120, 20);
     }

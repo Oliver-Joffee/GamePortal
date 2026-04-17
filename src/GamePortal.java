@@ -8,6 +8,8 @@ import Game.ErrorCheck;
 import CardGame.App;
 import BuzzfeedQuiz.Quiz;
 
+import NumberGuessGame.GuessGame;
+
 public class GamePortal {
     static Scanner sc = new Scanner(System.in);
     static ArrayList<Game> games = new ArrayList<Game>();
@@ -39,6 +41,7 @@ public class GamePortal {
         games.clear();
         games.add(new App());
         games.add(new Quiz());
+        games.add(new GuessGame());
     }
 
     public static void printGameChoices() {

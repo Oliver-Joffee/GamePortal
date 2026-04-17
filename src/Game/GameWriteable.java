@@ -27,6 +27,7 @@ public interface GameWriteable extends Game {
         System.out.println("Thanks for playing! Your score was " + score);
 
         if (highScore == null || isHighScore(score, highScore)) {
+            
             if (highScore != null) {
                 System.out.println("You got a new high score, which beats the previous high score of " + highScore);
             } else {

@@ -1,6 +1,9 @@
 package NumberGuessGame;
 
 import java.util.Scanner;
+
+import Game.GameWriteable;
+
 import java.util.ArrayList;
 import java.util.Random;
 
